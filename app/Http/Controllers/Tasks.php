@@ -20,4 +20,16 @@ class Tasks extends Controller
 
     	return response($task, 201);
     }
+
+
+    public function list() 
+    {
+    	return Task::all();
+    }
+
+     public function read($id) 
+    {
+    	return Task::find($id);
+    }
 }
+

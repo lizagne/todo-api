@@ -2,9 +2,13 @@
 
 use Illuminate\Http\Request;
 
+$router->group(["prefix" => "tasks"], function ($router) {
 
-	$router->post("tasks", "Tasks@create");
+	$router->post("", "Tasks@create");
+	$router->get("", "Tasks@list");
+	$router->get("{task}", "Tasks@read");
 
+});
 /*
 
 |--------------------------------------------------------------------------
