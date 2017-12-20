@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use App\Http\Requests\TaskRequest;
 
 class Tasks extends Controller
 
 {
     //create a method to Tasks
 
-    public function create(Request $request)
+    public function create(TaskRequest $request)
     {
     	//update the create function, using the data from the request
     	$data = $request->only(["task", "priority", "complete"]);
@@ -32,7 +33,7 @@ class Tasks extends Controller
     	return $task;
     }
 
-    public function update(Request $request, Task $task)
+    public function update(TaskRequest $request, Task $task)
     {
 
     	$data = $request->only(["task"]);
