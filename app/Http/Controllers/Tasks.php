@@ -27,29 +27,25 @@ class Tasks extends Controller
     	return Task::all();
     }
 
-    public function read($id) 
+    public function read(Task $task) 
     {
-    	return Task::find($id);
-    }
-
-    public function update(Request $request, $id)
-    {
-    	$task = Task::find($id);
-
-    	$data = $request->only(["task"]);
-
-    	$task->fill($data)->save();
-
     	return $task;
     }
 
-    public function delete($id)
-	{
-		$task = Task::find($id);
-		$task->delete();
+    public function update(Request $request, Task $task)
+    {
 
+    	$data = $request->only(["task"]);
+    	$task->fill($data)->save();
+    	return $task;
+    }
+
+    public function delete(Task $task)
+	{
+		$task->delete();
 		return response(null, 204);
     }
+
 
 
 }
