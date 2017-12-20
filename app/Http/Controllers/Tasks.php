@@ -43,6 +43,14 @@ class Tasks extends Controller
     	return $task;
     }
 
+    public function delete($id)
+	{
+		$task = Task::find($id);
+		$task->delete();
+
+		return response(null, 204);
+    }
+
 
 }
 

@@ -8,6 +8,7 @@ $router->group(["prefix" => "tasks"], function ($router) {
 	$router->get("", "Tasks@list");
 	$router->get("{task}", "Tasks@read");
 	$router->put("{task}", "Tasks@update");
+	$router->delete("{task}", "Tasks@delete");
 
 });
 /*
