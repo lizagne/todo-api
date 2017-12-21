@@ -26,6 +26,7 @@ class TaskRequest extends FormRequest
         return [
              "task" => ["required", "string", "max:150"],
              "priority" => ["integer", "max:3", "min:0"],
+             "complete" => ["boolean"]
         ];
     }
 }
